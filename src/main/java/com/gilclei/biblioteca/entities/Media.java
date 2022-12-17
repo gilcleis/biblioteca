@@ -2,6 +2,7 @@ package com.gilclei.biblioteca.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public abstract class Media  implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(length = 100, nullable = false)
 	protected String nome;
 	protected String tipo;
 	protected Double valor;
@@ -29,6 +31,21 @@ public abstract class Media  implements Serializable {
 		this.tipo = tipo;
 	}
 	
+	public Media(String nome, String tipo,Boolean alugado) {
+		this.nome = nome;
+		this.tipo = tipo;
+		this.alugado = alugado;
+	}
+	
+	
+	
+	public Media(String nome, String tipo, Double valor, Boolean alugado) {
+		this.nome = nome;
+		this.tipo = tipo;
+		this.valor = valor;
+		this.alugado = alugado;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -36,4 +53,12 @@ public abstract class Media  implements Serializable {
 	public String getTipo() {
 		return tipo;
 	}
+
+	@Override
+	public String toString() {
+		return "Media [id=" + id + ", nome=" + nome + ", tipo=" + tipo + ", valor=" + valor + ", alugado=" + alugado
+				+ "]";
+	}
+	
+	
 }
