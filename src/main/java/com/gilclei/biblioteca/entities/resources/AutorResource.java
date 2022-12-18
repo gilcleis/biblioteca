@@ -22,7 +22,7 @@ import com.gilclei.biblioteca.services.AutorService;
 
 @RestController
 @RequestMapping(value = "/autores")
-public class AutorController {
+public class AutorResource {
 
 	@Autowired
 	private AutorService service;

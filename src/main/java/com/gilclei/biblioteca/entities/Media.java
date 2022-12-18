@@ -11,34 +11,33 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "medias")
-public abstract class Media  implements Serializable {
+public abstract class Media implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(length = 100, nullable = false)
 	protected String nome;
 	protected String tipo;
 	protected Double valor;
 	protected Boolean alugado;
-	
-	public Media() {}
-	
+
+	public Media() {
+	}
+
 	public Media(String nome, String tipo) {
 		this.nome = nome;
 		this.tipo = tipo;
 	}
-	
-	public Media(String nome, String tipo,Boolean alugado) {
+
+	public Media(String nome, String tipo, Boolean alugado) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.alugado = alugado;
 	}
-	
-	
-	
+
 	public Media(String nome, String tipo, Double valor, Boolean alugado) {
 		this.nome = nome;
 		this.tipo = tipo;
@@ -46,12 +45,44 @@ public abstract class Media  implements Serializable {
 		this.alugado = alugado;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
-	
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public String getTipo() {
 		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public Boolean getAlugado() {
+		return alugado;
+	}
+
+	public void setAlugado(Boolean alugado) {
+		this.alugado = alugado;
 	}
 
 	@Override
@@ -59,6 +90,5 @@ public abstract class Media  implements Serializable {
 		return "Media [id=" + id + ", nome=" + nome + ", tipo=" + tipo + ", valor=" + valor + ", alugado=" + alugado
 				+ "]";
 	}
-	
-	
+
 }
