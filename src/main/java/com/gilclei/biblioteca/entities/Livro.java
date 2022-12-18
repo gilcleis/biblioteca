@@ -3,9 +3,6 @@ package com.gilclei.biblioteca.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,9 +12,6 @@ import javax.persistence.Table;
 public class Livro extends Media implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	private Integer edicao;
 	
 	@ManyToOne
@@ -31,19 +25,10 @@ public class Livro extends Media implements Serializable {
 		super(nome, "Livro");
 	} 
 	
-	public Livro( Long id,String nome, String tipo, Integer edicao, Autor autor,Double valor, Boolean alugado) {
-		super(nome, tipo,valor, alugado);
-		this.id = id;
+	public Livro(Long id, String nome, String tipo, Integer edicao, Autor autor,Double valor, Boolean alugado) {
+		super(id,nome, tipo,valor, alugado);
 		this.edicao = edicao;
 		this.autor = autor;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Integer getEdicao() {
@@ -64,7 +49,7 @@ public class Livro extends Media implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", edicao=" + edicao + ", autor=" + autor + ", nome=" + nome + ", tipo=" + tipo
+		return "Livro [id=" + getId() + ", edicao=" + edicao + ", autor=" + autor + ", nome=" + nome + ", tipo=" + tipo
 				+ ", valor=" + valor + ", alugado=" + alugado + "]";
 	}
 

@@ -3,9 +3,6 @@ package com.gilclei.biblioteca.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -15,13 +12,9 @@ import javax.persistence.Table;
 public class Jogo extends Media implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
 	private String versao;
 	private Boolean digital;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "desenvolvedora_id")
 	private Desenvolvedora desenvolvedora;
@@ -31,23 +24,15 @@ public class Jogo extends Media implements Serializable {
 
 	public Jogo(String nome) {
 		super(nome, "Jogo");
-		
-	} 
-	
-	public Jogo(Long id,String nome, String tipo,  String versao, Boolean digital, Desenvolvedora desenvolvedora,Double valor, Boolean alugado) {
-		super(nome, tipo,valor, alugado);
-		this.id = id;
+
+	}
+
+	public Jogo(Long id, String nome, String tipo, String versao, Boolean digital, Desenvolvedora desenvolvedora,
+			Double valor, Boolean alugado) {
+		super(id, nome, tipo, valor, alugado);
 		this.versao = versao;
 		this.digital = digital;
 		this.desenvolvedora = desenvolvedora;
-	}
-	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getVersao() {
@@ -76,10 +61,9 @@ public class Jogo extends Media implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Jogo [id=" + id + ", versao=" + versao + ", digital=" + digital + ", desenvolvedora=" + desenvolvedora
-				+ ", nome=" + nome + ", tipo=" + tipo + ", valor=" + valor + ", alugado=" + alugado + "]";
+		return "Jogo [id=" + getId() + ", versao=" + versao + ", digital=" + digital + ", desenvolvedora="
+				+ desenvolvedora + ", nome=" + nome + ", tipo=" + tipo + ", valor=" + valor + ", alugado=" + alugado
+				+ "]";
 	}
-
-	
 
 }

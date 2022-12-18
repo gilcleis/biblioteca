@@ -38,11 +38,12 @@ public abstract class Media implements Serializable {
 		this.alugado = alugado;
 	}
 
-	public Media(String nome, String tipo, Double valor, Boolean alugado) {
+	public Media(Long id,String nome, String tipo, Double valor, Boolean alugado) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.valor = valor;
 		this.alugado = alugado;
+		this.id = id;
 	}
 
 	public Long getId() {
