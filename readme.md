@@ -3,8 +3,10 @@
 
 <h2>🎯 Objetivo do Projeto</h2>
 Desenvolver um conjunto de API’s utilizando Spring Boot para controlar uma Biblioteca. Serão controlados a entrada, saída e valor a ser cobrado do cliente. São aplicadas as boas práticas de desenvolvimento de API’s incluindo acesso a banco de dados H2.
- 
+
 ![](./diagram.png)
+
+<a href="Treinamento_Java.postman_collection.json">Arquivo postman</a>
 <h2>
 🛑 Pré-requistos
 </h2>
